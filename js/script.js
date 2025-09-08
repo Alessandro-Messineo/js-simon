@@ -21,6 +21,7 @@ const messageElement = document.getElementById('message');
 const min = 1;
 const max = 50;
 
+// Funzione per generare 5 numeri casuali univoci
 function randomNum(min, max) {
 
     let arrayRandomNum = [];
@@ -36,6 +37,22 @@ function randomNum(min, max) {
     return arrayRandomNum;
 }
 
+let count = 3;
 
+// Funzione per il countdown
+function timer(count) {
+    const countdown =setInterval(() => {
 
-console.log(randomNum(min, max));
+        countdownElement.innerText = --count;
+        countdownElement.innerHTML = count;
+        if(count <= 0){
+            clearInterval(countdown);
+            countdownElement.style.display = "none";
+            numbersListElement.style.display = "none"; // ERRORE DA CORREGGERE
+        }
+    }, 1000);
+}
+
+randomNum(min, max);
+timer(count);
+
